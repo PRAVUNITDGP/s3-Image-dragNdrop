@@ -18,8 +18,11 @@ const DropZone = ({userProfileId}) => {
                     "Content-Type": "multipart/form-data"
                 }
             }
-
-        )
+        ).then(() => {
+            console.log("file uploaded successfully");
+        }).catch(err => {
+            console.log(err);
+        });
     },[]);
     const {getRootProps, getInputProps, isDragActive} = useDropzone({onDrop});
     return (
